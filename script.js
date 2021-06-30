@@ -1,5 +1,5 @@
-let numb1;
-let numb2;
+let num1 = '';
+let num2 = '';
 let operator;
 let response;
 const result = document.querySelector(".res");
@@ -15,34 +15,42 @@ buttonNumb.forEach((button) => {
 });
 buttonClear.addEventListener("click", () => {
   result.textContent = "";
+  num1 = ''
+  num2 = ''
 });
 buttonOperator.forEach((buttonOp) => {
   buttonOp.addEventListener("click", () => {
-    num1 = parseInt(result.textContent);
+    // if(num1 !== '' && num2 !== ''){
+    //   num2 = parseInt(result.textContent)
+    //   operate(operator, num1, num2)
+    // }
+    num1 = result.textContent;
     result.textContent = "";
     operator = buttonOp.textContent;
+    console.log(num1);
+    console.log(num2);
   });
 });
 buttonEquals.addEventListener("click", () => {
-  num2 = parseInt(result.textContent);
+  num2 = result.textContent;
   result.textContent = "";
   operate(operator, num1, num2);
 });
 
 function add(number1, number2) {
-	response = number1 + number2
+	response = parseInt(number1) + parseInt(number2)
 	result.textContent = response
 }
 function subtract(number1, number2) {
-	response = number1 - number2
+	response = parseInt(number1) - parseInt(number2)
 	result.textContent = response
 }
 function multiply(number1, number2) {
-	response = number1 * number2
+	response = parseInt(number1) * parseInt(number2)
 	result.textContent = response
 }
 function divide(number1, number2) {
-	response = number1 / number2
+	response = parseInt(number1) / parseInt(number2)
 	result.textContent = response
 }
 function operate(operator, number1, number2) {
