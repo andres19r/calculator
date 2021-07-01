@@ -2,55 +2,66 @@ let num1 = '';
 let num2 = '';
 let operator;
 let response;
+let sw = false;
 const result = document.querySelector(".res");
 const buttonNumb = document.querySelectorAll(".number");
 const buttonClear = document.querySelector(".clear");
 const buttonOperator = document.querySelectorAll(".operator");
 const buttonEquals = document.querySelector(".equals");
 
+function clearResult(){
+  result.textContent = ''
+}
 buttonNumb.forEach((button) => {
   button.addEventListener("click", () => {
+    if (!sw) {
+      clearResult()
+      sw = true
+    }
     result.textContent += button.textContent;
   });
 });
 buttonClear.addEventListener("click", () => {
-  result.textContent = "";
+  clearResult()
   num1 = ''
   num2 = ''
 });
 buttonOperator.forEach((buttonOp) => {
   buttonOp.addEventListener("click", () => {
-    // if(num1 !== '' && num2 !== ''){
-    //   num2 = parseInt(result.textContent)
-    //   operate(operator, num1, num2)
-    // }
-    num1 = result.textContent;
-    result.textContent = "";
-    operator = buttonOp.textContent;
-    console.log(num1);
-    console.log(num2);
+    if(num1 !== ''){
+      num2 = result.textContent
+      operate(operator, num1, num2)
+      num1 = result.textContent;
+      operator = buttonOp.textContent;
+    }else{
+      num1 = result.textContent;
+      operator = buttonOp.textContent;
+    }
+    sw = false
   });
 });
 buttonEquals.addEventListener("click", () => {
   num2 = result.textContent;
-  result.textContent = "";
   operate(operator, num1, num2);
+  num1 = ''
+  num2 = ''
+  sw = false
 });
 
 function add(number1, number2) {
-	response = parseInt(number1) + parseInt(number2)
+	response = Number(number1) + Number(number2)
 	result.textContent = response
 }
 function subtract(number1, number2) {
-	response = parseInt(number1) - parseInt(number2)
+	response = Number(number1) - Number(number2)
 	result.textContent = response
 }
 function multiply(number1, number2) {
-	response = parseInt(number1) * parseInt(number2)
+	response = Number(number1) * Number(number2)
 	result.textContent = response
 }
 function divide(number1, number2) {
-	response = parseInt(number1) / parseInt(number2)
+	response = Number(number1) / Number(number2)
 	result.textContent = response
 }
 function operate(operator, number1, number2) {
