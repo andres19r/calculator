@@ -8,6 +8,7 @@ const buttonNumb = document.querySelectorAll(".number");
 const buttonClear = document.querySelector(".clear");
 const buttonOperator = document.querySelectorAll(".operator");
 const buttonEquals = document.querySelector(".equals");
+const buttonDec = document.querySelector(".point");
 
 function clearResult(){
   result.textContent = ''
@@ -21,6 +22,11 @@ buttonNumb.forEach((button) => {
     result.textContent += button.textContent;
   });
 });
+buttonDec.addEventListener("click", () => {
+  if(result.textContent.indexOf('.') === -1){
+    result.textContent += '.'
+  }
+})
 buttonClear.addEventListener("click", () => {
   clearResult()
   num1 = ''
