@@ -65,8 +65,12 @@ function multiply(number1, number2) {
 	result.textContent = response
 }
 function divide(number1, number2) {
-	response = Number(number1) / Number(number2)
-	result.textContent = response
+  if(number2 === '0'){
+    result.textContent = "Can't divide per 0"
+  }else{
+    response = Number(number1) / Number(number2)
+    result.textContent = response
+  }
 }
 function operate(operator, number1, number2) {
   switch (operator) {
