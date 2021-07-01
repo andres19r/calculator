@@ -1,6 +1,6 @@
 let num1 = '';
 let num2 = '';
-let operator;
+let operator = '';
 let response;
 let sw = false;
 const result = document.querySelector(".res");
@@ -41,11 +41,15 @@ buttonOperator.forEach((buttonOp) => {
   });
 });
 buttonEquals.addEventListener("click", () => {
-  num2 = result.textContent;
-  operate(operator, num1, num2);
-  num1 = ''
-  num2 = ''
-  sw = false
+  if(num1 === ''){
+    result.textContent = ''
+  }else{
+    num2 = result.textContent;
+    operate(operator, num1, num2);
+    num1 = ''
+    num2 = ''
+    sw = false
+  }
 });
 
 function add(number1, number2) {
