@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 body {
 	margin: 0;
 	padding: 0;
@@ -6,38 +7,60 @@ h1 {
 	text-align: center;
 }
 .container {
+	border-radius: 20px;
 	border: 2px solid black;
 	width: 50%;
 	height: 80vh;
 	margin: 0 auto;
 	display: grid;
 	grid-template-rows: 1fr 3fr;
+	background: #28272f;
 }
 .result{
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
 	text-align: right;
-	border: 1px solid red;
 	display: flex;
 	align-items: center;
+	background: #28272f;
 }
 .result .res {
-	border: 1px solid green;
+	border: 1px solid white;
+	height: 70px;
 	width: 100%;
+	font-size: 50px;
+	background: #ffffff;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-right: 10px;
+	font-family: 'Montserrat', sans-serif;
 }
-.buttons{
-	border: 1px solid blue;
+.buttons-grid{
+	margin-left: 15px;
+	margin-right: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(4, 1fr);
+	background: #28272f;
+	padding: 10px;
 }
 button {
+	border-radius: 50px;
 	border: 1px solid gray;
 	width: 90%;
 	height: 90%;
+	font-size: 2vw;
+	color: white;
+	background: #525451;
 }
 button:hover {
 	cursor: pointer;
 }
 .equals {
-	grid-row-end: span 4;
-	height: 98%;
+	grid-row-end: span 3;
+	height: 97%;
+	background-color:#eaa452;
+	font-size: 35px;
 }

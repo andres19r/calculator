@@ -9,6 +9,7 @@ const buttonClear = document.querySelector(".clear");
 const buttonOperator = document.querySelectorAll(".operator");
 const buttonEquals = document.querySelector(".equals");
 const buttonDec = document.querySelector(".point");
+const buttonDelete = document.querySelector(".delete")
 
 function clearResult(){
   result.textContent = ''
@@ -57,6 +58,9 @@ buttonEquals.addEventListener("click", () => {
     sw = false
   }
 });
+buttonDelete.addEventListener('click', () => {
+  result.textContent = result.textContent.slice(0,result.textContent.length-1)
+})
 
 function add(number1, number2) {
 	response = Number(number1) + Number(number2)
